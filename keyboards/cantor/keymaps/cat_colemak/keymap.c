@@ -27,30 +27,30 @@ tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
     // Tap once for Quotes, twice for Double Quotes
-    [TD_QUOTES] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_AT),
+    [TD_QUOTES] = ACTION_TAP_DANCE_DOUBLE(ES_QUOT, ES_DQUO),
     // Tap once for N, twice for Ñ
-    [TD_AA] = ACTION_TAP_DANCE_DOUBLE(KC_A, KC_SCLN),
+    [TD_AA] = ACTION_TAP_DANCE_DOUBLE(ES_A, ES_AT),
     // Tap once for N, twice for Ñ
-    [TD_NN] = ACTION_TAP_DANCE_DOUBLE(KC_N, KC_SCLN),
+    [TD_NN] = ACTION_TAP_DANCE_DOUBLE(ES_N, ES_NTIL),
     // Tap once for C, twice for Ç
-    [TD_CC] = ACTION_TAP_DANCE_DOUBLE(KC_C, KC_BSLS),
+    [TD_CC] = ACTION_TAP_DANCE_DOUBLE(ES_C, ES_CCED),
     // Tap once for S, twice for $
-    [TD_SS] = ACTION_TAP_DANCE_DOUBLE(KC_S, KC_DLR),
+    [TD_SS] = ACTION_TAP_DANCE_DOUBLE(ES_S, ES_DLR),
     // Tap once for ., twice for ·
-    [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_HASH),
+    [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(ES_DOT, ES_BULT),
     // Tap once for RIGHT ALT, twice for ADJUST LAYER
     [TD_ALT_JUMP] = ACTION_TAP_DANCE_LAYER_MOVE(KC_RALT, 3)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
-      * ┌─────┬───┬───┬───┬───┬───┐           ┌───┬───┬───┬───┬───┬─────┐
-      * │ Tab │ Q │ W │ F │ P │ G │           │ J │ L │ U │ Y │ ' │ Bsp │
-      * ├─────┼───┼───┼───┼───┼───┤           ├───┼───┼───┼───┼───┼─────┤
-      * │ ESC │A@ │ R │S$ │ T │ D │           │ H │ NÑ│ E │ I │ O │  ·  │
-      * ├─────┼───┼───┼───┼───┼───┤           ├───┼───┼───┼───┼───┼─────┤
-      * │`/Sft│ Z │ X │CÇ │ V │ B │           │ K │ M │ , │ .·│ - │´/Sft│
-      * └─────┴───┴───┴───┴───┴───┘           └───┴───┴───┴───┴───┴─────┘
+      * ┌─────┬───┬───┬───┬───┬───┐           ┌───┬───┬───┬───┬───┬───────┐
+      * │ Tab │ Q │ W │ F │ P │ G │           │ J │ L │ U │ Y │'" │   `   │
+      * ├─────┼───┼───┼───┼───┼───┤           ├───┼───┼───┼───┼───┼───────┤
+      * │ ESC │A@ │ R │S$ │ T │ D │           │ H │ NÑ│ E │ I │ O │   ´   │
+      * ├─────┼───┼───┼───┼───┼───┤           ├───┼───┼───┼───┼───┼───────┤
+      * │`/Sft│ Z │ X │CÇ │ V │ B │           │ K │ M │ , │ .·│ - │Bsp/Sft│
+      * └─────┴───┴───┴───┴───┴───┘           └───┴───┴───┴───┴───┴───────┘
       *          ┌────┐                              ┌───┐
       *          │LCTL├───────┐                ┌─────┤Alt│
       *          └────┤ TO(1) ├───────┐    ┌───┤TO(2)├───┘
@@ -58,15 +58,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                       └───────┘    └───┘
       */
     [0] = LAYOUT_split_3x6_3(
-      //--------------------------------------------------------------------------                 -----------------------------------------------------------------------------
-        KC_TAB,                 KC_Q,    KC_W,    KC_F,       KC_P,    KC_G,                                 KC_J,    KC_L,        KC_U,    KC_Y,    TD(TD_QUOTES),   KC_BSPC,
-      //--------------------------------------------------------------------------                 -----------------------------------------------------------------------------
-        TD(TD_ESC_CAPS),        TD(TD_AA),    KC_R,    TD(TD_SS),  KC_T,    KC_D,                                 KC_H,    TD(TD_NN),   KC_E,    KC_I,    KC_O,            KC_LBRC,
-      //--------------------------------------------------------------------------                 -----------------------------------------------------------------------------
-        LSFT_T(KC_HASH),        KC_Z,    KC_X,    TD(TD_CC),  KC_V,    KC_B,                                 KC_K,    KC_M,        KC_COMM, TD(TD_DOT),  KC_SLSH,         RSFT_T(KC_QUOT),
-      //--------------------------------------------------------------------------                 -----------------------------------------------------------------------------
-                                   KC_LCTL,     KC_LOWER,   MT(MOD_LGUI, KC_ENT),                            KC_SPC,  KC_RAISE,  TD(TD_ALT_JUMP)
-      //--------------------------------------------------------------------------                 -----------------------------------------------------------------------------
+      //------------------------------------------------------------------------------------                 -----------------------------------------------------------------------------------------
+        KC_TAB,             ES_Q,       ES_W,       ES_F,           ES_P,       ES_G,                         ES_J,     ES_L,        ES_U,           ES_Y,        TD(TD_QUOTES),   ES_GRV,
+      //------------------------------------------------------------------------------------                 -----------------------------------------------------------------------------------------
+        TD(TD_ESC_CAPS),    TD(TD_AA),  ES_R,       TD(TD_SS),      ES_T,       ES_D,                         ES_H,     TD(TD_NN),   ES_E,           ES_I,        ES_O,            ES_ACUT,
+      //------------------------------------------------------------------------------------                 -----------------------------------------------------------------------------------------
+        LSFT_T(ES_LABK),    ES_Z,       ES_X,       TD(TD_CC),      ES_V,       ES_B,                         ES_K,     ES_M,        ES_COMM,        TD(TD_DOT),  ES_MINS,         RSFT_T(KC_BSPC),
+      //------------------------------------------------------------------------------------                 -----------------------------------------------------------------------------------------
+                            KC_LCTL,            KC_LOWER,           MT(MOD_LGUI,   KC_ENT),                   KC_SPC,   KC_RAISE,    TD(TD_ALT_JUMP)
+      //------------------------------------------------------------------------------------                 -----------------------------------------------------------------------------------------
         ),
      /*
       * ┌───┬───┬───┬───┬───┬───┐              ┌───┬───┬───┬───┬───┬───┐
