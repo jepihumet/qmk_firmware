@@ -40,8 +40,8 @@ tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
-        KC_TAB,             ES_Q,           ES_W,           ES_F,           ES_P,               ES_G,                       ES_J,           ES_L,             ES_U,                 ES_Y,           TD(TD_QUOTES),      KC_BSPC,
-        TD(TD_ESC_CAPS),    TD(TD_AA),      ES_R,           TD(TD_SS),      ES_T,               ES_D,                       ES_H,           TD(TD_NN),        ES_E,                 ES_I,           ES_O,               ES_GRV,
+        TD(TD_ESC_CAPS),    ES_Q,           ES_W,           ES_F,           ES_P,               ES_G,                       ES_J,           ES_L,             ES_U,                 ES_Y,           TD(TD_QUOTES),      KC_BSPC,
+        KC_TAB,             TD(TD_AA),      ES_R,           TD(TD_SS),      ES_T,               ES_D,                       ES_H,           TD(TD_NN),        ES_E,                 ES_I,           ES_O,               ES_GRV,
         KC_LSFT,            ES_Z,           ES_X,           TD(TD_CC),      ES_V,               ES_B,                       ES_K,           ES_M,             TD(TD_COMM_MINS),     TD(TD_DOT),     KC_RSFT,            ES_ACUT,
                                                             KC_LCTL,        LT(2,KC_ENT),       LGUI_T(KC_SPC),             KC_SPC,         LT(1,KC_ENT),     KC_RALT
     ),
